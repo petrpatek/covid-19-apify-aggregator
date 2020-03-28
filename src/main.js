@@ -31,7 +31,6 @@ Apify.main(async () => {
     const data = { countries: [] };
     const dataSources = response.body;
     for (const source of dataSources) {
-        console.log('Processiong: ', source.title);
         const { body: countryData } = await Apify.utils.requestAsBrowser({
             url: source.latestApi.url,
             abortFunction: () => false,
@@ -41,6 +40,8 @@ Apify.main(async () => {
         const countrySchema = transformSchema[countryName];
 
         if (countrySchema) {
+            console.log('Saving data for: ', source.title);
+
             data.countries.push({
                 ...transformCoreData(countrySchema, countryData),
                 country: countryName,
