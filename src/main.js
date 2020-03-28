@@ -1,12 +1,25 @@
-
 const Apify = require('apify');
+const transformSchema = require('./transform-schema');
 
 const LATEST = 'LATEST';
+const removeEmoji = (countryTitle) => {
+    return countryTitle.replace(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g, '').trim();
+};
 
+const getValue = (schema, data, prop) => {
+    const value = schema[prop];
+    return value === undefined ? 'NA' : data[schema[prop]];
+};
+const transformCoreData = (schema, countryData) => {
+    return {
+        infected: getValue(schema, countryData, 'infected'),
+        tested: getValue(schema, countryData, 'tested'),
+        recovered: getValue(schema, countryData, 'recovered'),
+        deceased: getValue(schema, countryData, 'deceased'),
+
+    };
+};
 Apify.main(async () => {
-    /**
-     * Actor code
-     */
     const kvStore = await Apify.openKeyValueStore('COVID-19-WORLD');
     const dataset = await Apify.openDataset('COVID-19-WORLD-HISTORY');
 
@@ -24,11 +37,19 @@ Apify.main(async () => {
             abortFunction: () => false,
             json: true,
         });
+        const countryName = removeEmoji(source.title);
+        const countrySchema = transformSchema[countryName];
 
-        if (source.title.includes('USA')) {
-            data.countries.push({ country: source.title, ...countryData[0] });
-        } else {
-            data.countries.push({ country: source.title, ...countryData });
+        if (countrySchema) {
+            data.countries.push({
+                ...transformCoreData(countrySchema, countryData),
+                country: countryName,
+                moreData: source.latestApi.url,
+                historyData: source.historyApi.url,
+                sourceUrl: countryData.sourceUrl,
+                lastUpdatedSource: countryData.lastUpdatedSource,
+                lastUpdatedApify: countryData.lastUpdatedApify,
+            });
         }
     }
     const now = new Date();
