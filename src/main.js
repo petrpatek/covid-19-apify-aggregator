@@ -28,7 +28,7 @@ Apify.main(async () => {
         abortFunction: () => false,
         json: true,
     });
-    const data = { countries: [] };
+    const data = [];
     const dataSources = response.body;
     for (const source of dataSources) {
         const { body: countryData } = await Apify.utils.requestAsBrowser({
@@ -41,34 +41,47 @@ Apify.main(async () => {
 
         if (countrySchema) {
             console.log('Saving data for: ', source.title);
-
-            data.countries.push({
-                ...transformCoreData(countrySchema, countryData),
+            const metaData = {
                 country: countryName,
                 moreData: source.latestApi.url,
                 historyData: source.historyApi.url,
                 sourceUrl: countryData.sourceUrl,
                 lastUpdatedSource: countryData.lastUpdatedSource,
                 lastUpdatedApify: countryData.lastUpdatedApify,
-            });
+            };
+
+            switch (countryName) {
+                case 'Slovakia':
+                    data.push({
+                        infected: countryData.totalInfected,
+                        tested: countryData.totalInfected + countryData.totalNegative,
+                        ...metaData,
+                    });
+                    break;
+                default:
+                    data.push({
+                        ...transformCoreData(countrySchema, countryData),
+                        ...metaData,
+                    });
+            }
         }
     }
-    const now = new Date();
-    data.lastUpdated = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes())).toISOString();
-
-    // Compare and save to history
-    let latest = await kvStore.getValue(LATEST);
-    if (!latest) {
-        await kvStore.setValue('LATEST', data);
-        latest = data;
-    }
-    delete latest.lastUpdated;
-    const actual = Object.assign({}, data);
-    delete actual.lastUpdatedAt;
-
-    if (JSON.stringify(latest) !== JSON.stringify(actual)) {
-        await dataset.pushData(data);
-    }
+    // const now = new Date();
+    // data.lastUpdated = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes())).toISOString();
+    //
+    // // Compare and save to history
+    // let latest = await kvStore.getValue(LATEST);
+    // if (!latest) {
+    //     await kvStore.setValue('LATEST', data);
+    //     latest = data;
+    // }
+    // delete latest.lastUpdated;
+    // const actual = Object.assign({}, data);
+    // delete actual.lastUpdatedAt;
+    //
+    // if (JSON.stringify(latest) !== JSON.stringify(actual)) {
+    //     await dataset.pushData(data);
+    // }
 
     await kvStore.setValue('LATEST', data);
     await Apify.pushData(data);

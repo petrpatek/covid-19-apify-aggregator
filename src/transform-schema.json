@@ -46,7 +46,7 @@
     },
     "Hungary": {
         "deceased": "deceased",
-        "tested": "totalTested",
+        "tested": "tested",
         "recovered": "recovered",
         "infected": "infected"
     },
@@ -65,7 +65,7 @@
         "deceased": "deceased"
     },
     "Lithuania": {
-        "infected": "confirmedCases",
+        "infected": "infected",
         "tested": "testedCases",
         "deceased": "numberOfDeaths"
     },
@@ -79,7 +79,8 @@
     },
     "Norway": {
         "infected": "infected",
-        "deceased": "deaths"
+        "deceased": "deaths",
+        "tested": "tested"
     },
     "Pakistan": {
         "deceased": "deceased",
