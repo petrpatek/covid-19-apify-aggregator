@@ -46,8 +46,8 @@ Apify.main(async () => {
                 moreData: source.latestApi.url,
                 historyData: source.historyApi.url,
                 sourceUrl: countryData.sourceUrl,
-                lastUpdatedSource: countryData.lastUpdatedSource,
-                lastUpdatedApify: countryData.lastUpdatedApify,
+                lastUpdatedSource: countryData.lastUpdatedAtSource,
+                lastUpdatedApify: countryData.lastUpdatedAtApify,
             };
 
             switch (countryName) {

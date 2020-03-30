@@ -65,7 +65,7 @@
         "deceased": "deceased"
     },
     "Lithuania": {
-        "infected": "infected",
+        "infected": "confirmedCases",
         "tested": "testedCases",
         "deceased": "numberOfDeaths"
     },
