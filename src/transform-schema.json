@@ -61,7 +61,7 @@
         "infected": "identifiedCases"
     },
     "Japan": {
-        "infected:": "infected",
+        "infected": "infected",
         "deceased": "deceased"
     },
     "Lithuania": {
@@ -129,5 +129,15 @@
     "United States": {
         "deceased": "totalDeaths",
         "infected": "totalCases"
+    },
+    "India": {
+        "infected": "activeCases",
+        "deceased": "deaths",
+        "recovered": "recovered"
+    },
+    "Bulgaria": {
+        "deceased": "deceased",
+        "recovered": "recovered",
+        "infected": "infected"
     }
 }
