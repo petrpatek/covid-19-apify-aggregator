@@ -65,7 +65,6 @@
         "deceased": "deceased"
     },
     "Lithuania": {
-        "infected": "confirmedCases",
         "tested": "testedCases",
         "deceased": "numberOfDeaths"
     },
@@ -120,7 +119,6 @@
     },
     "Switzerland": {
         "deceased": "numberOfDeaths",
-        "tested": "testedCases",
         "infected": "confirmedCases"
     },
     "United Kingdom": {

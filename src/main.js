@@ -55,6 +55,8 @@ Apify.main(async () => {
                     data.push({
                         infected: countryData.totalInfected,
                         tested: countryData.totalInfected + countryData.totalNegative,
+                        recovered: 'NA',
+                        deceased: 'NA',
                         ...metaData,
                     });
                     break;
