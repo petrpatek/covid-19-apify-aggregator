@@ -2,13 +2,14 @@ const Apify = require('apify');
 const transformSchema = require('./transform-schema');
 
 const LATEST = 'LATEST';
+const NO_DATA_PLACEHOLDER = 'NA';
 const removeEmoji = (countryTitle) => {
     return countryTitle.replace(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g, '').trim();
 };
 
 const getValue = (schema, data, prop) => {
     const value = schema[prop];
-    return value === undefined ? 'NA' : data[schema[prop]];
+    return value === undefined ? NO_DATA_PLACEHOLDER : data[schema[prop]];
 };
 const transformCoreData = (schema, countryData) => {
     return {
@@ -55,8 +56,8 @@ Apify.main(async () => {
                     data.push({
                         infected: countryData.totalInfected,
                         tested: countryData.totalInfected + countryData.totalNegative,
-                        recovered: 'NA',
-                        deceased: 'NA',
+                        recovered: NO_DATA_PLACEHOLDER,
+                        deceased: NO_DATA_PLACEHOLDER,
                         ...metaData,
                     });
                     break;
@@ -68,24 +69,20 @@ Apify.main(async () => {
             }
         }
     }
-    // const now = new Date();
-    // data.lastUpdated = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes())).toISOString();
-    //
-    // // Compare and save to history
-    // let latest = await kvStore.getValue(LATEST);
-    // if (!latest) {
-    //     await kvStore.setValue('LATEST', data);
-    //     latest = data;
-    // }
-    // delete latest.lastUpdated;
-    // const actual = Object.assign({}, data);
-    // delete actual.lastUpdatedAt;
-    //
-    // if (JSON.stringify(latest) !== JSON.stringify(actual)) {
-    //     await dataset.pushData(data);
-    // }
 
-    await kvStore.setValue('LATEST', data);
+    // Compare and save to history
+    let latest = await kvStore.getValue(LATEST);
+    if (!latest) {
+        await kvStore.setValue('LATEST', data);
+        latest = data;
+    }
+    const actual = Object.assign({}, data);
+
+    if (JSON.stringify(latest) !== JSON.stringify(actual)) {
+        await dataset.pushData(data);
+    }
+
+    await kvStore.setValue(LATEST, data);
     await Apify.pushData(data);
     console.log('Done.');
 });
