@@ -139,5 +139,11 @@
         "deceased": "deceased",
         "recovered": "recovered",
         "infected": "infected"
+    },
+    "Turkey": {
+        "infected": "infected",
+        "deceased": "deceased",
+        "tested":"tested",
+        "recovered": "recovered"
     }
 }
