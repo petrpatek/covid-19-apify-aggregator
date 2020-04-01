@@ -22,7 +22,7 @@
     "China": {
         "deceased": "deadCount",
         "recovered": "curedCount",
-        "infected": "currentConfirmedCount"
+        "infected": "infected"
     },
     "Denmark": {
         "deceased": "deceased",
@@ -110,12 +110,14 @@
         "infected": "infectedCases"
     },
     "South Korea": {
-        "deceased": "deaths",
-        "tested": "testedNegative",
-        "recovered": "discharged"
+        "deceased": "deceased",
+        "tested": "total",
+        "recovered": "discharged",
+        "infected": "infected"
     },
     "Sweden": {
-        "infected": "infected"
+        "infected": "infected",
+        "deceased": "deceased"
     },
     "Switzerland": {
         "deceased": "numberOfDeaths",
@@ -142,8 +144,11 @@
     },
     "Turkey": {
         "infected": "infected",
+        "deceased": "deceased"
+    },
+    "Spain": {
+        "infected": "infected",
         "deceased": "deceased",
-        "tested":"tested",
         "recovered": "recovered"
     }
 }
