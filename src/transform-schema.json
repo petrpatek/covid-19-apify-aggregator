@@ -6,9 +6,10 @@
         "infected": "infected"
     },
     "Austria": {
-        "deceased": "totalDeaths",
-        "tested": "totalTested",
-        "infected": "totalCases"
+        "deceased": "deceased",
+        "tested": "tested",
+        "infected": "infected",
+        "recovered": "recovered"
     },
     "Bahrain": {
         "deceased": "deceased",
