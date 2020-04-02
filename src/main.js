@@ -9,7 +9,7 @@ const removeEmoji = (countryTitle) => {
 
 const getValue = (schema, data, prop) => {
     const value = schema[prop];
-    return value === undefined ? NO_DATA_PLACEHOLDER : data[schema[prop]];
+    return value === undefined ? NO_DATA_PLACEHOLDER : parseInt(data[schema[prop]], 10);
 };
 const transformCoreData = (schema, countryData) => {
     return {
