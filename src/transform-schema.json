@@ -21,8 +21,8 @@
         "infected": "infected"
     },
     "China": {
-        "deceased": "deadCount",
-        "recovered": "curedCount",
+        "deceased": "deceased",
+        "recovered": "recovered",
         "infected": "infected"
     },
     "Denmark": {
@@ -32,7 +32,8 @@
     },
     "Estonia": {
         "deceased": "deceased",
-        "infected": "infected"
+        "infected": "infected",
+        "tested": "tested"
     },
     "Finland": {
         "infected": "confirmedCases"
@@ -54,12 +55,12 @@
     "Italy": {
         "deceased": "deceased",
         "recovered": "dischargedHealed",
-        "infected": "totalCurrentlyPositive"
+        "infected": "totalCases"
     },
     "Kosovo": {
         "deceased": "deceased",
         "recovered": "recovered",
-        "infected": "identifiedCases"
+        "infected": "infected"
     },
     "Japan": {
         "infected": "infected",
@@ -67,14 +68,16 @@
     },
     "Lithuania": {
         "tested": "testedCases",
-        "deceased": "numberOfDeaths"
+        "deceased": "numberOfDeaths",
+        "infected": "confirmedCases"
     },
     "Luxembourg": {
-        "infected:": "infected",
-        "deceased": "deceased"
+        "infected": "infected",
+        "deceased": "deceased",
+        "tested": "tested"
     },
     "Netherlands": {
-        "infected:": "infected",
+        "infected": "infected",
         "deceased": "deceased"
     },
     "Norway": {
@@ -151,5 +154,11 @@
         "infected": "infected",
         "deceased": "deceased",
         "recovered": "recovered"
+    },
+    "Malaysia": {
+        "infected": "testedPositive",
+        "tested": "testedTotal",
+        "recovered": "recovered",
+        "deceased": "deceased"
     }
 }
