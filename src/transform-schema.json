@@ -95,7 +95,7 @@
         "infected": "infected"
     },
     "Portugal": {
-        "deceased": "deaths",
+        "deceased": "deceased",
         "tested": "totalTested",
         "recovered": "recovered",
         "infected": "infected"
@@ -116,7 +116,6 @@
     "South Korea": {
         "deceased": "deceased",
         "tested": "total",
-        "recovered": "discharged",
         "infected": "infected"
     },
     "Sweden": {
