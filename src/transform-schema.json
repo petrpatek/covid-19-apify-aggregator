@@ -129,7 +129,7 @@
     "United Kingdom": {
         "deceased": "deceased",
         "recovered": "recovered",
-        "infected": "totalInfected"
+        "infected": "infected"
     },
     "United States": {
         "deceased": "totalDeaths",
@@ -147,7 +147,9 @@
     },
     "Turkey": {
         "infected": "infected",
-        "deceased": "deceased"
+        "deceased": "deceased",
+        "tested": "tested",
+        "recovered": "recovered"
     },
     "Spain": {
         "infected": "infected",
