@@ -161,5 +161,9 @@
         "tested": "testedTotal",
         "recovered": "recovered",
         "deceased": "deceased"
+    },
+    "Vietnam": {
+        "infected": "confirmedCases",
+        "deceased": "numberOfDeaths"
     }
 }
