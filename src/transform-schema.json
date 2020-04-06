@@ -165,5 +165,10 @@
     "Vietnam": {
         "infected": "confirmedCases",
         "deceased": "numberOfDeaths"
+    },
+    "Belgium": {
+        "deceased": "deaths",
+        "tested": "tested",
+        "infected": "infected"
     }
 }
