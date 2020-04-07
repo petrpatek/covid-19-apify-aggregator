@@ -170,5 +170,26 @@
         "deceased": "deaths",
         "tested": "tested",
         "infected": "infected"
+    },
+    "Nigeria": {
+        "deceased": "deceased",
+        "recovered": "recovered",
+        "infected": "infected"
+    },
+    "Saudi Arabia": {
+        "deceased": "deceased",
+        "recovered": "recovered",
+        "infected": "infected"
+    },
+    "Algeria": {
+        "deceased": "deceased",
+        "recovered": "recovered",
+        "infected": "infected"
+    },
+    "Palestine": {
+        "deceased": "deceased",
+        "recovered": "recovered",
+        "infected": "infected",
+        "tested": "tested"
     }
 }
