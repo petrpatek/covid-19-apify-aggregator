@@ -133,7 +133,6 @@
     },
     "United Kingdom": {
         "deceased": "deceased",
-        "recovered": "recovered",
         "infected": "infected"
     },
     "United States": {
