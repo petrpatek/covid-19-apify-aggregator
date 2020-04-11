@@ -110,6 +110,11 @@
         "recovered": "recovered",
         "infected": "infected"
     },
+    "Philippines": {
+        "deceased": "deceased",
+        "recovered": "recovered",
+        "infected": "infected"
+    },
     "Poland": {
         "deceased": "deceased",
         "infected": "infected"
@@ -148,7 +153,6 @@
     },
     "United Kingdom": {
         "deceased": "deceased",
-        "recovered": "recovered",
         "infected": "infected"
     },
     "United States": {
