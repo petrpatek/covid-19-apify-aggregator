@@ -140,7 +140,7 @@
     },
     "South Korea": {
         "deceased": "deceased",
-        "tested": "total",
+        "tested": "testsPerformed",
         "infected": "infected"
     },
     "Sweden": {
