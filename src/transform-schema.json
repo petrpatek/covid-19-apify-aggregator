@@ -11,6 +11,22 @@
         "infected": "infected",
         "recovered": "recovered"
     },
+    "Azerbaijan": {
+        "deceased": "deceased",
+        "tested": "tested",
+        "infected": "infected",
+        "recovered": "recovered"
+    },
+    "Iran": {
+        "deceased": "deceased",
+        "infected": "infected",
+        "recovered": "recovered"
+    },
+    "Philippines": {
+        "deceased": "deceased",
+        "infected": "infected",
+        "recovered": "recovered"
+    },
     "Bahrain": {
         "deceased": "deceased",
         "tested": "tested",
@@ -23,6 +39,10 @@
     "China": {
         "deceased": "deceased",
         "recovered": "recovered",
+        "infected": "infected"
+    },
+    "Canada": {
+        "deceased": "deceased",
         "infected": "infected"
     },
     "Denmark": {
