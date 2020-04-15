@@ -25,7 +25,7 @@ Apify.main(async () => {
     const dataset = await Apify.openDataset('COVID-19-WORLD-HISTORY');
 
     const response = await Apify.utils.requestAsBrowser({
-        url: 'https://raw.githubusercontent.com/apifytech/apify-docs/master/ext/covid_api_list.json',
+        url: 'https://raw.githubusercontent.com/apifytech/apify-web-covid-19/master/covid_api_list.json',
         abortFunction: () => false,
         json: true,
     });
