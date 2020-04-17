@@ -131,7 +131,10 @@
         "infected": "infected"
     },
     "Slovakia": {
-        "infected": "totalInfected"
+        "deceased": "deceased",
+        "tested": "tested",
+        "recovered": "recovered",
+        "infected": "infected"
     },
     "Slovenia": {
         "deceased": "numberOfDeath",

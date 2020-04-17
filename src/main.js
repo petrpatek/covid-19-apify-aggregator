@@ -52,15 +52,6 @@ Apify.main(async () => {
             };
 
             switch (countryName) {
-                case 'Slovakia':
-                    data.push({
-                        infected: countryData.totalInfected,
-                        tested: countryData.totalInfected + countryData.totalNegative,
-                        recovered: NO_DATA_PLACEHOLDER,
-                        deceased: NO_DATA_PLACEHOLDER,
-                        ...metaData,
-                    });
-                    break;
                 default:
                     data.push({
                         ...transformCoreData(countrySchema, countryData),
